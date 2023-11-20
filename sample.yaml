@@ -1,0 +1,4 @@
+name: sample
+on: push
+jobs:
+    run
