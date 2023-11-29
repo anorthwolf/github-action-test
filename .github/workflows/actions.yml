@@ -2,6 +2,21 @@ name: action test
 
 # on: [push]
 on: 
+  push:
+    branches:
+      - master
+      - 'feature/*' # matches features/a, features/b. 
+      - 'feature/**' # matches features/a/b
+      - '!feature/featC' # ignore featC branch
+    # branches-ignore:
+    #   - 'a'
+    tags:
+      - v1.*
+    # paths:
+    #   - '**.js'
+    paths-ignore:
+      - 'docs/**'
+  
 
   # triggered by post request. use postman or https://tryapis.com/github/api/repos-create-dispatch-event
   repository_dispatch:
