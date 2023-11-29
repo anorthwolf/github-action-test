@@ -2,7 +2,18 @@ name: action test
 
 # on: [push]
 on: 
-  push:
+  repository_dispatch:
+    types: [build]
+
+  # schedule:
+    # min, hour,day(month), month, day(week) check: https://crontab.guru/
+    # schedule
+    # - cron: "0/5 * * * *"
+    # - cron: "0/6 * * * *"
+    # - cron: "* * * * *"
+    
+
+  # push:
   pull_request:
     types: [closed, assigned, reopened, opened]
 
