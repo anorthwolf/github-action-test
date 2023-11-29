@@ -2,6 +2,8 @@ name: action test
 
 # on: [push]
 on: 
+
+  # triggered by post request. use postman or https://tryapis.com/github/api/repos-create-dispatch-event
   repository_dispatch:
     types: [build]
 
@@ -21,6 +23,9 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: payload
+        run:  echo ${{ github.event.client_payload.env}}
+
       - name: list item
         run: |
           pwd
